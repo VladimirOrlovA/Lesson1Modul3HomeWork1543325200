@@ -36,20 +36,10 @@ void Task2()
 	int m = 0 + rand() % 12; //  12 месяцев в году
 	int d = 0 + rand() % 30; //  30 дней в месяце
 
-	// enum motnth {Jan, Feb, Mar, May, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
-
 	day = (m - 1) * 30 + d;
 
 	printf("\n\nДата %d месяц %d день. С начала года прошло => %d дней\n\n", m, d, day);
 	
-	/*switch (m)
-		{
-		case 0: { day = d; printf("\n\nДата %d Января 2018 года. С начала года прошло => %d дней\n\n", d, day); }break;
-		case 1: { day = 31+d; printf("\n\nДата %d Января 2018 года. С начала года прошло => %d дней\n\n", d, day); }break;
-		default:
-			break;
-		}*/
-
 }
 
 
