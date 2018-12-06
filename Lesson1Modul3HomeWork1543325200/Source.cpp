@@ -3,213 +3,154 @@
 #include<cmath>
 #include<locale.h>
 #include<time.h>
+#define sec 60
+
 
 void Task1()
 {
-	printf("\n	Name:			\"The war and the peace\"\n");
-	printf("	Avtor:			L.N.Tolstoj\n");
-	printf("	Izdatelstvo:		Piter\n");
-	printf("	Pages :			500\n\n");
-}
-
-void Task2()
-{
-	printf("\nName	- PP - 12 - 1\n");
-	printf("Creator	- student\n");
-	printf("Size	- 50MB\n");
-	printf("Path	- D:\Academy\PP - 12 - 1\n\n");
-
-}
-
-void Task3()  // Task3 == Task == 9 :)
-{
-	int n;
-
-	printf("Введите четное число N : ");
-	scanf_s("%d", &n);
-
-
-	if ((n % 3) != 0 && (n % 7) == 0)
-	{
-		printf("Удовлетворяет условию a \n");
-	}
-	else { printf("Не удовлетворяет условию а \n"); }
-
-	if ((n % 5) != 0 && (n % 4) != 0)
-	{
-		printf("Удовлетворяет условию b \n");
-	}
-	else { printf("Не удовлетворяет условию b \n"); }
-
-	if ((n % 8) == 0 && (n % 11) == 0)
-	{
-		printf("Удовлетворяет условию c \n");
-	}
-	else { printf("Не удовлетворяет условию c \n"); }
-}
-
-void Task4()
-{
-	float n;
-
-	printf("Введите стоимость покупки : ");
-	scanf_s("%f", &n);
-
-	if (n > 400 && n < 600)
-	{
-		printf("Скидка на покупку 5 процентов %f \n", (n - (n*0.05)));
-	}
-
-	if (n > 600 && n < 1000)
-	{
-		printf("Скидка на покупку 10 процентов %f \n", (n - (n*0.1)));
-	}
-}
-
-void Task5()
-{
-	float rent, prib, sebes, sebestek = 100;
-	printf("Введите прибыль и себестоимость в текущем месяце: \n");
-	scanf_s("%f", &prib);
-	scanf_s("%f", &sebes);
-	if (sebes <= (sebestek - (sebestek*0.05)))
-	{
-		rent = (prib / sebes) * 100;
-		printf("Рентабельность работы предприятия за месяц %f процента \n\n", rent);
-	}
-	else { printf("Рентабельность работы предприятия не расчитывается,\nт.к. снижение себестоимсоти менее 5 процентов \n\n"); }
-}
-
-void Task6()
-{
-	int sec = 0 + rand() % 86400;
-	int h, m;
-
-	h = (float)sec / 3600;
-	m = ((sec / 60) - h * 60);
-	printf("\nЭто %d ч : %d м \n\n", h, m);
-}
-
-void Task7()
-{
-	int a, b, n = 10 + rand() % 99;
-	printf("Случайное число %d \n\n", n);
-
-	a = n / 10;
-	b = n % 10;
-	printf("Десятки \"A\" : %d \n", a);
-	printf("Единицы \"B\" : %d \n\n", b);
-
-	if (n % 2 == 0)
-	{
-		printf("Данное число является четным двузначным\n\n");
-	}
-
-	if (a % 2 > 0 || b % 2 > 0)
-	{
-		printf("Ровно одно из чисел А и В нечетное\n\n");
-	}
-
-	if (a % 2 > 0 && b % 2 > 0)
-	{
-		printf("Каждое из чисел А и В нечетное\n\n");
-	}
-}
-
-void Task8()
-{
-	int N = 70;
-
-	printf("Число %d \n\n", N);
-	if (N % 2 == 0 && N % 7 == 0 && N % 11 > 0 && N % 13 > 0) { printf("Это число четное делится на 7, но не делится на 11 и 13 без остатка.\n\n"); }
-	else { printf("Это число не подходит к условию: четное, делится на 7, но не делится на 11 и 13 без остатка.\n\n"); }
-}
-
-void Task10()
-{
-	int d = 1 + rand() % 6;		// день недели с Пн-Вс
-	int t = 0 + rand() % 24;	// время суток
-	int dt = 0 + rand() % 120;	// продолжительность разговора в минутах
-	int s = 10;					// тариф за 1 минуту разговора
-	int sum;
-
-	printf("\n\nДень недели %d \n", d);
-	printf("Время начала разговора %d \n\n", t);
-
-
-	if (d == 6 || d == 7)
-	{
-		if (t >= 22 || t < 8)
-		{
-			printf("Разговор состоялся в Сб-Вс с 22:00 до 8:00, применимы скидка -20%, доп скидка -10%\n");
-			sum = dt * (s - (s*0.28));
-			printf("Длительность разговора %d минут, к оплате: %d \n\n", dt, sum);
-		}
-
-		else if (d == 6 || d == 7)
-		{
-			printf("Разговор состоялся в Сб-Вс применима скидка -10%\n");
-			sum = dt * (s - (s*0.10));
-			printf("Длительность разговора %d минут, к оплате: %d\n\n", dt, sum);
-		}
-
-	}
-	else
-	{
-		if (t >= 22 || t < 8)
-		{
-			printf("Разговор состоялся с 22:00 до 8:00, применима скидка -20%\n");
-			sum = dt * (s - (s*0.20));
-			printf("Длительность разговора %d минут, к оплате: %d\n\n", dt, sum);
-		}
-
-		else
-		{
-			printf("Разговор состоялся с 8:00 до 22:00 \n");
-			sum = dt * s;
-			printf("Длительность разговора %d минут, к оплате: %d\n\n", dt, sum);
-		}
-	}
-}
-
-int main()
-{
-	int t;
-	setlocale(LC_ALL, "");
-	srand(time(NULL));
-
-	int task;
-	int flag;
+	// int h=15, m=30, s=45, daystart=28800, secday; // Текущее время 15:30:45, начало дня 8:00
+	
+	int secday;
+	const int daystart = 28800, dayend = 61200; // Начало дня с 8:00
 
 start:
 
-	printf("Введите номер задания =>");
-	scanf_s("%d", &t);
+	int h = 0 + rand() % 24; // день длится с 8 до 17 часов
+	int m = 0 + rand() % 60; // минуты в часе принимают значения от 0 до 60
+	int s = 0 + rand() % 60; // секунды в минуте принимают значения от 0 до 60
+		
+	secday = h * pow(sec, 2) + m * sec + s - daystart;
+	
+	printf("\nТекущее время %dч : %dм : %dс \n", h, m, s);
 
-	switch (t)
+	if (secday >= 0 && secday+daystart <= dayend) {printf("С начала дня прошло : %d секунд\n\n", secday); }
+	else if (secday < 0){ printf("День еще не начался\n\n"); }
+	else if (secday+daystart >= dayend) { printf("День длился : %d секунд\n\n", (dayend-daystart)); goto start;  }
+	
+}
+
+
+void Task2()
+{
+	int day;
+	int m = 0 + rand() % 12; //  12 месяцев в году
+	int d = 0 + rand() % 30; //  30 дней в месяце
+
+	day = (m - 1) * 30 + d;
+
+	printf("\n\nДата %d месяц %d день. С начала года прошло => %d дней\n\n", m, d, day);
+	
+}
+
+
+void Task3()
+{
+	int day;
+	int m = 0 + rand() % 12; //  12 месяцев в году последовательность 31, 30, 31, 30, 31 и т.д
+	
+start:
+	
+	int d = 0 + rand() % 31; //  31 день в месяце
+
+	if (m % 2 == 0) 
+	{ 
+		day = (m / 2) * 31 + ((m / 2) - 1) * 30 + d; 
+		printf("\n\nДата %d месяц %d день. С начала года прошло => %d дней\n\n", m, d, day);
+	}
+	else if (d != 31)
+	{ 
+		day = (m / 2)*(30 + 31) + d;
+		printf("\n\nДата %d месяц %d день. С начала года прошло => %d дней\n\n", m, d, day);
+	}
+	else { printf("1");  goto start; } // переход на генерацию нового значения дня, т.к. выпал 31 день, а в четном месяце их 30
+}
+
+
+void Task4()
+{
+		int m1;
+		int m0;
+		int N=10 + rand() % 99;
+
+		m1 = N / 10;
+		m0 = N - m1*10;
+
+		printf("\nДвузначное натуральное число %d\n", N);
+		printf("\nПервое число - десятки = %d\nВторое число - единицы = %d\n", m1, m0);
+}
+
+
+void Task5()
+{
+	start:
+	int m1 = 0 + rand() % 9;
+	int m2 = 0 + rand() % 9;
+	int m3 = 0 + rand() % 9;
+
+	printf("\n\nСлучайные числа m1 = %d, m2 = %d, m3 = %d \n", m1, m2, m3);
+
+	if (m1 == m2 && m1 == m3 && m2 == m3){ printf("\nВведенные числа m1, m2, m3 равны между собой. Пробуем еще раз...\n\n"); goto start; }
+	else
 	{
-	case 1: {Task1(); } break;
-	case 2: {Task2(); } break;
-	case 3: {Task3(); } break;
-	case 4: {Task4(); } break;
-	case 5: {Task5(); } break;
-	case 6: {Task6(); } break;
-	case 7: {Task7(); } break;
-	case 8: {Task8(); } break;
-	case 9: {Task3(); } break;
-	case 10: {Task10(); } break;
+		if (m1 == m2 && m1 < m3) { printf("\nВведено два минимальных значения из трех, определить одно не возможно.\nПробуем еще раз..."); goto start; }
+		if (m1 == m3 && m2 > m3) { printf("\nВведено два минимальных значения из трех, определить одно не возможно.\nПробуем еще раз..."); goto start; }
+		if (m2 == m3 && m1 > m2) { printf("\nВведено два минимальных значения из трех, определить одно не возможно.\nПробуем еще раз..."); goto start; }
+		
+		
+		if (m1 < m2 && m1 < m3) { printf("\nНаименьшее число из введенных m1 = %d \n", m1); }
+		else if (m2 < m1 && m2 < m3) { printf("\nНаименьшее число из введенных m2 = %d \n", m2); }
+		else if (m3 < m1 && m3 < m2) { printf("\nНаименьшее число из введенных m3 = %d \n", m3); }
+	}
+}
 
+
+void Task6()
+{
+	int c = 0;
+	do
+	{
+		c++;
+		int m = 1 + rand() % 45;
+		int n = 1 + rand() % 10;
+		if (m%n == 0) { printf("\nЧисло n=%d кратно m=%d\n\n", n,m); }
+		else { printf("\nЧисло n=%d  не кратно m=%d\n\n", n, m); }
+	} while (c < 7);
+}
+
+
+int main()
+{
+	setlocale(LC_ALL, "");
+	srand(time(NULL));
+	
+	int task;
+	int flag;
+
+	start:
+
+	printf("Enter number of task from (1) to (6) : ");
+	scanf_s("%d", &task);
+
+	switch (task)
+	{
+	case 1: {(Task1()); } break;
+	case 2: {(Task2()); } break;
+	case 3: {(Task3()); } break;
+	case 4: {(Task4()); } break;
+	case 5: {(Task5()); } break;
+	case 6: {(Task6()); } break;
 
 	default:
 		break;
-		
 	}
 
-	printf("\nDo You want to continue? set 0 or 1 =>  ");
-	scanf_s("%d", &flag);
-
+	{
+		printf("\nDo You want to continue? set 0 or 1 =>  ");
+		scanf_s("%d", &flag);
+		
 	if (flag == 1)
 		goto start;
 
 	system("pause");
+	}
 }
